@@ -1,0 +1,360 @@
+{
+  "info": {
+    "_postman_id": "ec8660db-aef1-428b-9cf7-a876f900854b",
+    "name": "Swazie practical test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "4777568",
+    "_collection_link": "https://go.postman.co/collection/4777568-ec8660db-aef1-428b-9cf7-a876f900854b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Shashank\",\r\n    \"email\": \"shashank@example.com\",\r\n    \"password\": \"password123\",\r\n    \"password_confirmation\": \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost/order-management-api/public/api/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "order-management-api",
+                "public",
+                "api",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"shashank@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost/order-management-api/public/api/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "order-management-api",
+                "public",
+                "api",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "3|lAAbecl0M7YbS7edaRHlkJCQiYeLkyxK7rKjbK0Vf51e92b1",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/order-management-api/public/api/logout",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "order-management-api",
+                "public",
+                "api",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Product Management",
+      "item": [
+        {
+          "name": "Create a product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|CApFORDZuVezzuuA5GoSk3axeMUc8HUFO2E13Lb27ed956ab",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"iPhone Fold\", \"price\": 999.99, \"stock\": 10, \"description\": \"iPhone Fold\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost/order-management-api/public/api/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "order-management-api",
+                "public",
+                "api",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Product listing",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost/order-management-api/public/api/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "order-management-api",
+                "public",
+                "api",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "mouse",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get single product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/order-management-api/public/api/products/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "order-management-api",
+                "public",
+                "api",
+                "products",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|CApFORDZuVezzuuA5GoSk3axeMUc8HUFO2E13Lb27ed956ab",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Updated Laptop Name\",\r\n    \"price\": 963.00,\r\n    \"stock\": 86 \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost/order-management-api/public/api/products/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "order-management-api",
+                "public",
+                "api",
+                "products",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|CApFORDZuVezzuuA5GoSk3axeMUc8HUFO2E13Lb27ed956ab",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/order-management-api/public/api/products/6",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "order-management-api",
+                "public",
+                "api",
+                "products",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order Management",
+      "item": [
+        {
+          "name": "Place order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|CApFORDZuVezzuuA5GoSk3axeMUc8HUFO2E13Lb27ed956ab",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"items\": [\r\n        {\"product_id\": 1, \"quantity\": 2},\r\n        {\"product_id\": 4, \"quantity\": 3}\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost/order-management-api/public/api/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "order-management-api",
+                "public",
+                "api",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get user orders",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|CApFORDZuVezzuuA5GoSk3axeMUc8HUFO2E13Lb27ed956ab",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost/order-management-api/public/api/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "path": [
+                "order-management-api",
+                "public",
+                "api",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
